@@ -94,39 +94,39 @@ hl.device({
 })
 
 -- KEYBINDS
-local mod = "SUPER"
+local Mod = "SUPER"
 
-hl.bind(mod .. " + Return", hl.dsp.exec_cmd(terminal))
-hl.bind(mod .. " + Space", hl.dsp.exec_cmd(menu))
+hl.bind(Mod .. " + Return", hl.dsp.exec_cmd(terminal))
+hl.bind(Mod .. " + Space", hl.dsp.exec_cmd(menu))
 
-hl.bind(mod .. " + Q", hl.dsp.window.close())
-hl.bind(mod .. " + W", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
-hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
-hl.bind(mod .. " + S", hl.dsp.layout("togglesplit"))
+hl.bind(Mod .. " + Q", hl.dsp.window.close())
+hl.bind(Mod .. " + W", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(Mod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized" }))
+hl.bind(Mod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+hl.bind(Mod .. " + S", hl.dsp.layout("togglesplit"))
 hl.bind(
-	mod .. " + Shift + Escape",
+	Mod .. " + Shift + Escape",
 	hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")
 )
 
 local directions = { H = "left", L = "right", K = "up", J = "down" }
 
 for key, dir in pairs(directions) do
-	hl.bind(mod .. " + " .. key, hl.dsp.focus({ direction = dir }))
-	hl.bind(mod .. " + Shift + " .. key, hl.dsp.window.move({ direction = dir }))
+	hl.bind(Mod .. " + " .. key, hl.dsp.focus({ direction = dir }))
+	hl.bind(Mod .. " + Shift + " .. key, hl.dsp.window.move({ direction = dir }))
 end
 
 for i = 1, 10 do
 	local key = i % 10
 
-	hl.bind(mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind(mod .. " + Shift + " .. key, hl.dsp.window.move({ workspace = i }))
+	hl.bind(Mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind(Mod .. " + Shift + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(Mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(Mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(Mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(Mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- WINDOW RULES
 hl.window_rule({
